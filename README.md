@@ -1,36 +1,131 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Recipe Finder
 
-## Getting Started
+A responsive web application built with Next.js, TailwindCSS, and TypeScript for finding recipes based on user-provided ingredients. It also features a detailed recipe page for more information about a specific recipe.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Features
+
+### Recipe Finder Page
+- Users can input a comma-separated list of ingredients to find recipes.
+- Responsive design ensures usability across devices.
+- Displays recipes with their title, image, and ingredient counts (used and missed).
+- Allows navigation to a detailed view of each recipe.
+
+### Recipe Detail Page
+- Displays detailed information about a recipe, including an image, summary, ingredients, health score, price per serving, and source link.
+- Responsive layout with optimized design for images and text.
+- Includes a back button to return to the previous page.
+
+### Loading Spinner
+- A modal-style loading spinner provides feedback during data fetching.
+
+### Button Effects
+- Buttons include hover and active animations for better interactivity.
+
+### Input State Persistence
+- User input on the Recipe Finder page is preserved when navigating back from the Recipe Detail page.
+
+---
+
+## Tech Stack
+- **Next.js**: Framework for server-side rendering and routing.
+- **TailwindCSS**: Utility-first CSS framework for responsive and modern designs.
+- **TypeScript**: Strongly typed language for better maintainability and developer experience.
+- **Spoonacular API**: Fetch recipes and detailed information using their API.
+
+---
+
+## Installation and Setup
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Cool-Dev100/recipe-finder.git
+   cd recipe-finder
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Set up environment variables:
+   Create a `.env` file in the root directory and add your Spoonacular API key:
+   ```env
+   SPOONACULAR_API_KEY=your_api_key_here
+   ```
+
+4. Run the development server:
+   ```bash
+   npm run dev
+   ```
+
+5. Open your browser and navigate to:
+   ```
+   http://localhost:3000
+   ```
+
+---
+
+## File Structure
+
+```
+.
+├── src
+│   ├── app
+        ├── api
+        │   ├── recipeDetail
+        │   │   └── route.ts
+        │   ├── recipes
+        │   │   └── route.ts
+        ├── context
+        │   ├── RecipeFinderContext.tsx
+        ├── layouts
+        │   └── RecipeLayout.tsx
+        ├── recipe
+        │   └── [id]
+        │       └── page.tsx
+        │   ├── RecipeFinder.tsx
+        ├── UiUtils
+        │   ├── LoadingSpinner.tsx
+        │   └── RecipeCard.tsx
+        └── globals.css
+        └── layout.tsx
+        └── page.tsx
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Components
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### `RecipeFinder`
+- Input field for entering ingredients.
+- Fetches and displays recipe results.
 
-## Learn More
+### `RecipeDetail`
+- Shows recipe details fetched by ID.
 
-To learn more about Next.js, take a look at the following resources:
+### `LoadingSpinner`
+- A modal-style spinner for indicating data loading.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### `RecipeCard`
+- Displays an individual recipe card with a link to the detail page.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## Responsive Design
+- **Mobile**: The layout stacks elements vertically for smaller screens.
+- **Tablet/Desktop**: Uses horizontal layouts and grids for larger screens.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Enhancements
+- Add user authentication to save favorite recipes.
+- Implement pagination for recipe results.
+- Allow users to filter recipes by dietary preferences.
+
+---
+
+## License
+This project is open source and available under the [MIT License](LICENSE).
+
