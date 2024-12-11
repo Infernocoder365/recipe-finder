@@ -79,6 +79,8 @@ const RecipeDetail = () => {
             <Image
               src={recipe.image}
               alt={recipe.title}
+              width={400}
+              height={300}
               className="w-full h-64 sm:h-auto object-cover rounded-xl shadow-lg"
             />
           </div>
@@ -103,6 +105,8 @@ const RecipeDetail = () => {
                 <Image
                   src={`https://img.spoonacular.com/ingredients_100x100/${ingredient.image}`}
                   alt={ingredient.name}
+                  width={64}
+                  height={64}
                   className="w-16 h-16 rounded-full border-2 border-gray-300"
                 />
                 <span className="text-lg font-medium">{ingredient.original}</span>

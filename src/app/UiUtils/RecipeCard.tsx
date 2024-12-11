@@ -24,6 +24,8 @@ const RecipeCard = (props: RecipeCardProps) => {
                 <Image
                     src={recipe.image}
                     alt={recipe.title}
+                    width={240}
+                    height={180}
                     className="w-full h-40 object-cover rounded-md transform transition-transform duration-300 group-hover:scale-110"
                 />
                 <h3 className="mt-2 font-bold text-lg">
