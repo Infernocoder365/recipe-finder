@@ -2,18 +2,26 @@
 
 import { createContext, useContext, useState, ReactNode } from 'react';
 
+interface recipe {
+  id: string;
+  image: string;
+  title: string;
+  usedIngredientCount: number;
+  missedIngredientCount: number;
+}
+
 interface RecipeFinderContextType {
   ingredients: string;
   setIngredients: (ingredients: string) => void;
-  recipes: any[];
-  setRecipes: (recipes: any[]) => void;
+  recipes: recipe[];
+  setRecipes: (recipes: recipe[]) => void;
 }
 
 const RecipeFinderContext = createContext<RecipeFinderContextType | undefined>(undefined);
 
 export const RecipeFinderProvider = ({ children }: { children: ReactNode }) => {
   const [ingredients, setIngredients] = useState<string>('');
-  const [recipes, setRecipes] = useState<any[]>([]);
+  const [recipes, setRecipes] = useState<recipe[]>([]);
 
   return (
     <RecipeFinderContext.Provider value={{ ingredients, setIngredients, recipes, setRecipes }}>
