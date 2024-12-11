@@ -15,11 +15,6 @@ interface RecipeCardProps {
 }
 
 const RecipeCard = (props: RecipeCardProps) => {
-    const [ingredients, setIngredients] = useState<string>('');
-    const [recipes, setRecipes] = useState<any[]>([]); // You might want to define a proper type for recipes here
-    const [loading, setLoading] = useState<boolean>(false);
-    const [error, setError] = useState<string>('');
-
     const recipe = props.recipe;
     return (
         <div

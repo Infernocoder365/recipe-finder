@@ -11,6 +11,7 @@ const getRecipeDetail = async (id: number) => {
     );
     return response.data;
   } catch (error) {
+    console.log(error);
     throw new Error('Error fetching recipes');
   }
 };
@@ -26,6 +27,7 @@ export async function POST(req: Request) {
     const recipes = await getRecipeDetail(id);
     return NextResponse.json(recipes);
   } catch (error) {
+    console.log(error);
     return NextResponse.json({ error: 'Error fetching recipes' }, { status: 500 });
   }
 }

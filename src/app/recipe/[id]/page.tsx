@@ -7,9 +7,21 @@ import Image from 'next/image';
 import RecipeLayout from '../../layouts/RecipeLayout'; // Import the shared layout
 import LoadingSpinner from '../../UiUtils/LoadingSpinner'; // Import the LoadingSpinner
 
+interface recipe {
+  id: string;
+  image: string;
+  title: string;
+  summary: string;
+  extendedIngredients: any[];
+  healthScore: number;
+  pricePerServing: number;
+  sourceUrl: string;
+  // missedIngredientCount: number;
+}
+
 const RecipeDetail = () => {
   const { id } = useParams(); // Accessing the dynamic `id` from the URL
-  const [recipe, setRecipe] = useState<any | null>(null); // Recipe state
+  const [recipe, setRecipe] = useState<recipe | null>(null); // Recipe state
   const [loading, setLoading] = useState<boolean>(true); // Loading state
   const [error, setError] = useState<string>(''); // Error state
 
