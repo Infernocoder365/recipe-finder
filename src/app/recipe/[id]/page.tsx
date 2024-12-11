@@ -3,6 +3,7 @@
 
 import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
+import Image from 'next/image';
 import RecipeLayout from '../../layouts/RecipeLayout'; // Import the shared layout
 import LoadingSpinner from '../../UiUtils/LoadingSpinner'; // Import the LoadingSpinner
 
@@ -55,7 +56,7 @@ const RecipeDetail = () => {
         <div className="flex flex-col sm:flex-row items-center sm:items-start justify-start sm:space-x-8 mb-8">
           {/* Recipe Image */}
           <div className="flex-shrink-0 w-full sm:w-1/3 mb-6 sm:mb-0">
-            <img
+            <Image
               src={recipe.image}
               alt={recipe.title}
               className="w-full h-64 sm:h-auto object-cover rounded-xl shadow-lg"
@@ -79,7 +80,7 @@ const RecipeDetail = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
             {recipe.extendedIngredients.map((ingredient: any) => (
               <div key={ingredient.id} className="flex items-center space-x-2">
-                <img
+                <Image
                   src={`https://img.spoonacular.com/ingredients_100x100/${ingredient.image}`}
                   alt={ingredient.name}
                   className="w-16 h-16 rounded-full border-2 border-gray-300"

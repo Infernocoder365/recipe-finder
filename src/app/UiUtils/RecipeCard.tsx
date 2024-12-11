@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState } from 'react';
 interface recipe {
     id: string;
@@ -26,7 +27,7 @@ const RecipeCard = (props: RecipeCardProps) => {
             className="cursor-pointer group p-4 border rounded-md shadow-md hover:bg-gray-100 hover:shadow-lg transition-all duration-200 text-black"
         >
             <Link href={`/recipe/${recipe.id}`}>
-                <img
+                <Image
                     src={recipe.image}
                     alt={recipe.title}
                     className="w-full h-40 object-cover rounded-md transform transition-transform duration-300 group-hover:scale-110"
