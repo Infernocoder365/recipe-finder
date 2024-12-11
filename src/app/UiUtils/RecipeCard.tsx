@@ -1,0 +1,44 @@
+'use client';
+
+import Link from 'next/link';
+import { useState } from 'react';
+interface recipe {
+    id: string;
+    image: string;
+    title: string;
+    usedIngredientCount: number;
+    missedIngredientCount: number;
+}
+interface RecipeCardProps {
+    recipe: recipe
+}
+
+const RecipeCard = (props: RecipeCardProps) => {
+    const [ingredients, setIngredients] = useState<string>('');
+    const [recipes, setRecipes] = useState<any[]>([]); // You might want to define a proper type for recipes here
+    const [loading, setLoading] = useState<boolean>(false);
+    const [error, setError] = useState<string>('');
+
+    const recipe = props.recipe;
+    return (
+        <div
+            key={recipe.id}
+            className="cursor-pointer group p-4 border rounded-md shadow-md hover:bg-gray-100 hover:shadow-lg transition-all duration-200 text-black"
+        >
+            <Link href={`/recipe/${recipe.id}`}>
+                <img
+                    src={recipe.image}
+                    alt={recipe.title}
+                    className="w-full h-40 object-cover rounded-md transform transition-transform duration-300 group-hover:scale-110"
+                />
+                <h3 className="mt-2 font-bold text-lg">
+                    {recipe.title}
+                </h3>
+                <p>Used Ingredients: {recipe.usedIngredientCount}</p>
+                <p>Missing Ingredients: {recipe.missedIngredientCount}</p>
+            </Link>
+        </div>
+    );
+};
+
+export default RecipeCard;
