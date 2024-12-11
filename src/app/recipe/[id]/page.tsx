@@ -7,12 +7,19 @@ import Image from 'next/image';
 import RecipeLayout from '../../layouts/RecipeLayout'; // Import the shared layout
 import LoadingSpinner from '../../UiUtils/LoadingSpinner'; // Import the LoadingSpinner
 
+interface recipeItem {
+  id: number;
+  image: string;
+  name: string;
+  original: string;
+}
+
 interface recipe {
   id: string;
   image: string;
   title: string;
   summary: string;
-  extendedIngredients: any[];
+  extendedIngredients: recipeItem[];
   healthScore: number;
   pricePerServing: number;
   sourceUrl: string;
@@ -90,7 +97,7 @@ const RecipeDetail = () => {
 
           {/* Ingredient Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
-            {recipe.extendedIngredients.map((ingredient: any) => (
+            {recipe.extendedIngredients.map((ingredient: recipeItem) => (
               <div key={ingredient.id} className="flex items-center space-x-2">
                 <Image
                   src={`https://img.spoonacular.com/ingredients_100x100/${ingredient.image}`}

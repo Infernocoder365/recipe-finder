@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState } from 'react';
 interface recipe {
     id: string;
     image: string;
