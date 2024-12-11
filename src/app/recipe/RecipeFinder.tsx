@@ -26,7 +26,11 @@ const RecipeFinder = () => {
     };
 
     const handleSubmit = async () => {
-        if (!ingredients.trim()) return; // Ensure not submitting empty input
+        if (!ingredients.trim()) {
+            console.log("here");
+            setError('Please input your ingredients.');
+            return;
+        } // Ensure not submitting empty input
         setLoading(true);
         setError('');
         try {
@@ -60,7 +64,7 @@ const RecipeFinder = () => {
     return (
         <div className="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-lg">
             {/* Input and Button in the same line */}
-            <div className="flex items-center mb-6 space-x-4">
+            <div className="flex flex-col sm:flex-row items-center mb-6 sm:space-x-4 space-y-4 sm:space-y-0">
                 <input
                     type="text"
                     placeholder="Enter ingredients (comma-separated)"
@@ -71,12 +75,13 @@ const RecipeFinder = () => {
                 />
                 <button
                     onClick={handleSubmit}
-                    className="h-12 px-6 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300"
-                    disabled={loading || !ingredients}
+                    className="cursor-pointer w-full sm:w-auto h-12 px-6 bg-blue-600 text-white rounded-lg hover:bg-blue-700 active:scale-95 text-lg font-medium leading-none"
+                    disabled={loading}
                 >
-                    {loading ? 'Finding Recipes...' : 'Search'}
+                    {loading ? 'Searching...' : 'Search'}
                 </button>
             </div>
+
 
             {/* Display LoadingSpinner if loading */}
             {loading && <LoadingSpinner />}
@@ -86,6 +91,7 @@ const RecipeFinder = () => {
 
             {/* Recipe Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {/* {error ? (<p className="text-red-500 text-center font-medium mb-6">{error}</p>) : ""} */}
                 {recipes.length > 0 ? (
                     recipes.map((recipe: recipe) => <RecipeCard key={recipe.id} recipe={recipe} />)
                 ) : (

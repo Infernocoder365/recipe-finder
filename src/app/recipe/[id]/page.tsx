@@ -74,7 +74,7 @@ const RecipeDetail = () => {
         {/* Back Button */}
         <button
           onClick={() => router.back()} // Navigate to the previous page
-          className="mb-6 px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded-lg text-gray-700 text-sm font-medium transition duration-200"
+          className="mb-6 px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded-lg text-gray-700 text-sm font-medium active:scale-95 cursor-pointer"
         >
           ← Back
         </button>
@@ -117,7 +117,7 @@ const RecipeDetail = () => {
                   alt={ingredient.name}
                   width={64}
                   height={64}
-                  className="rounded-full border-2 border-gray-300"
+                  className="rounded-full"
                 />
                 <span className="text-sm sm:text-base font-medium">{ingredient.original}</span>
               </div>
