@@ -72,7 +72,7 @@ const RecipeFinder = () => {
                     className="h-12 px-6 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300"
                     disabled={loading || !ingredients}
                 >
-                    {loading ? 'Finding Recipes...' : 'Find Recipes'}
+                    {loading ? 'Finding Recipes...' : 'Search'}
                 </button>
             </div>
 
