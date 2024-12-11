@@ -2,6 +2,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useRecipeFinder } from '../context/RecipeFinderContext';
 import RecipeCard from '../UiUtils/RecipeCard';
 import LoadingSpinner from '../UiUtils/LoadingSpinner';
 
@@ -14,8 +15,9 @@ interface recipe {
 }
 
 const RecipeFinder = () => {
-    const [ingredients, setIngredients] = useState('');
-    const [recipes, setRecipes] = useState<recipe[]>([]);
+    // const [ingredients, setIngredients] = useState('');
+    const { ingredients, setIngredients, recipes, setRecipes } = useRecipeFinder();
+    // const [recipes, setRecipes] = useState<recipe[]>([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string>('');
 
